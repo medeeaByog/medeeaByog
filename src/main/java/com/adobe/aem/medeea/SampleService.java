@@ -1,15 +1,14 @@
 package com.adobe.aem.medeea;
 
 /**
- * Sample service class with intentional syntax error for testing Cloud Manager pipeline
+ * Sample service class for testing the Cloud Manager pipeline.
  */
 public class SampleService {
 
     private String serviceName;
 
     public SampleService() {
-        this.serviceName = "Medeea BYOG Service"
-        // Missing semicolon above will cause compilation to fail
+        this.serviceName = "Medeea BYOG Service";
     }
 
     public String getServiceName() {

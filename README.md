@@ -16,6 +16,16 @@ To build the project locally:
 mvn clean install
 ```
 
+The build produces `ui.apps/target/medeea-byog.ui.apps-1.0.0-SNAPSHOT.zip`.
+This is an AEM application content package containing a sample node at
+`/apps/medeea-byog`. Cloud Manager can discover it as a non-skipped content
+package; it is not just compiled Java classes.
+
+The root project also compiles `SampleService.java` so syntax errors fail the
+build. That class is a compilation fixture, not an OSGi service, and is not
+included in the content package. Deploying Java code would require a separate
+OSGi bundle module embedded in the package.
+
 ## Cloud Manager Configuration
 
 The project includes:

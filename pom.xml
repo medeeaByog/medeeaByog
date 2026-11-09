@@ -66,6 +66,6 @@
     </build>
 
     <modules>
-        <!-- Add modules here as needed -->
+        <module>ui.apps</module>
     </modules>
 </project>
