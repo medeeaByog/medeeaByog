@@ -8,7 +8,7 @@ public class SampleService {
     private String serviceName;
 
     public SampleService() {
-        this.serviceName = "Medeea BYOG Service"
+        this.serviceName = "Medeea BYOG Service";
     }
 
     public String getServiceName() {
