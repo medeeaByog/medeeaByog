@@ -20,8 +20,13 @@ mvn clean install
 
 The project includes:
 - `pom.xml` - Maven build configuration
+- `.cloudmanager/java-version` - Selects JDK 11 for Cloud Manager builds
 - `.cloudmanager/pipeline.yml` - Cloud Manager pipeline configuration
 - Quality gates for code quality, security, and performance
+
+Cloud Manager uses `.cloudmanager/java-version` to select the build JDK;
+the `jdkVersion` field in `pipeline.yml` is ignored. Keep this file set to `11`
+to match the Maven compiler configuration and satisfy the Java 11+ enforcer rule.
 
 ## Pipeline
 
