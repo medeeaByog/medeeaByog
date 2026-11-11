@@ -1,0 +1,8 @@
+[submodule "medeea-byog-core"]
+	path = medeea-byog-core
+	url = https://github.com/mariamedeea/medeea-byog-core.git
+	branch = main
+[submodule "medeea-byog-ui-config"]
+	path = medeea-byog-ui-config
+	url = https://github.com/mariamedeea/medeea-byog-ui-config.git
+	branch = main

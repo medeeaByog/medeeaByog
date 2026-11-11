@@ -48,3 +48,18 @@ All gates have a 70% threshold:
 - Code Quality
 - Security
 - Performance
+
+## Git Submodules
+
+This project includes the following modules as git submodules:
+
+- `medeea-byog-core` → https://github.com/mariamedeea/medeea-byog-core
+- `medeea-byog-ui-config` → https://github.com/mariamedeea/medeea-byog-ui-config
+
+Clone with submodules:
+
+```bash
+git clone --recurse-submodules git@github.com:medeeaByog/medeeaByog.git
+# or, in an existing clone
+git submodule update --init --recursive
+```

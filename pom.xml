@@ -66,6 +66,8 @@
     </build>
 
     <modules>
-        <!-- Add modules here as needed -->
+        <!-- Git submodules (see .gitmodules) -->
+        <module>medeea-byog-core</module>
+        <module>medeea-byog-ui-config</module>
     </modules>
 </project>
