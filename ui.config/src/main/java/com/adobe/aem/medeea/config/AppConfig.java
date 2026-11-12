@@ -28,7 +28,6 @@ public class AppConfig {
     }
 
     public int getMaxGreetings() {
-        // Returns a String where an int is expected: "incompatible types" compile error
-        return properties.getProperty("greeting.max", "3");
+        return Integer.parseInt(properties.getProperty("greeting.max", "3"));
     }
 }
