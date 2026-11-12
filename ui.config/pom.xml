@@ -11,7 +11,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>medeea-byog.ui-config</artifactId>
+    <artifactId>medeea-byog.ui.config</artifactId>
     <packaging>jar</packaging>
-    <name>Medeea BYOG - UI config</name>
+    <name>Medeea BYOG - UI Config</name>
 </project>

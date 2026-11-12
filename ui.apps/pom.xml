@@ -11,9 +11,9 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>medeea-byog.app</artifactId>
+    <artifactId>medeea-byog.ui.apps</artifactId>
     <packaging>jar</packaging>
-    <name>Medeea BYOG - App</name>
+    <name>Medeea BYOG - UI Apps</name>
 
     <dependencies>
         <dependency>
@@ -23,7 +23,7 @@
         </dependency>
         <dependency>
             <groupId>com.adobe.aem</groupId>
-            <artifactId>medeea-byog.ui-config</artifactId>
+            <artifactId>medeea-byog.ui.config</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
