@@ -57,6 +57,8 @@
     </build>
 
     <modules>
-        <!-- Add modules here as needed -->
+        <module>medeea-byog-core</module>
+        <module>medeea-byog-ui-config</module>
+        <module>medeea-byog-app</module>
     </modules>
 </project>
