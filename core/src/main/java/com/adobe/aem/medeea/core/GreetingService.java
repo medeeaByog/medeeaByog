@@ -6,7 +6,7 @@ package com.adobe.aem.medeea.core;
 public class GreetingService {
 
     public String greet(String name) {
-        String target = (name == null || name.isEmpty()) ? "world" : name
+        String target = (name == null || name.isEmpty()) ? "world" : name;
         // Missing semicolon above will cause compilation to fail
         return "Hello, " + target + "!";
     }
