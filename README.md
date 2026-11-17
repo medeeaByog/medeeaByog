@@ -16,15 +16,18 @@ To build the project locally:
 mvn clean install
 ```
 
-The root project builds a JAR without submodules at
-`target/medeea-byog-1.0.0-SNAPSHOT.jar`.
+The root project builds an AEM FileVault content package without submodules at
+`target/medeea-byog-1.0.0-SNAPSHOT.zip`. Cloud Manager requires this deployable
+content package; a plain JAR does not satisfy its artifact check. The package
+creates only the `/apps/medeea-byog` fixture folder.
 
 This branch intentionally contains code-quality issues in `QualityIssuesService.java`
 for pipeline troubleshooting: string identity comparisons, empty broad exception
 handlers, unused code, mutable public state, duplicated logic, excessive nesting,
 discarded string transformations, deprecated wrapper constructors, console logging,
 and an `equals` override without `hashCode`. The Maven build
-passes; the fixture is not production code and is not called by `SampleService`.
+passes; the Java fixture is compiled for analysis, but is not deployed as an
+OSGi bundle and is not called by `SampleService`.
 The exact findings and gate outcome depend on the pipeline's analyzer and profile.
 
 To generate a local PMD report without making quality findings fail the Maven build,
