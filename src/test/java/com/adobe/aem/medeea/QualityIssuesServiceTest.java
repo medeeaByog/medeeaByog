@@ -103,7 +103,7 @@ public class QualityIssuesServiceTest {
     public void calculateScore_activePreferredGoldHighValue_returnsValueTimes7() {
         // value > 100, kind "gold", active=true, preferred=true
         // kind is compared by reference; passing the literal interned string
-        assertEquals(700, service.calculateScore(100 + 1, "gold", true, true));
+        assertEquals((100 + 1) * 7, service.calculateScore(100 + 1, "gold", true, true));
     }
 
     @Test
