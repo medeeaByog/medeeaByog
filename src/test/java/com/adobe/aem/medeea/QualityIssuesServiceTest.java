@@ -218,7 +218,7 @@ class QualityIssuesServiceTest {
         "10,  gold,  false, false, 5"       // value - 5
     })
     void calculateScore_allBranches(int value, String kind, boolean active, boolean preferred, int expected) {
-        assertEquals(expected, service.calculateScore(value, kind, active, preferred));
+        assertEquals(expected, service.calculateScore(value, kind == null ? null : kind.intern(), active, preferred));
     }
 
     // ---- addMessage / getMessages ----
