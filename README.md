@@ -16,10 +16,26 @@ To build the project locally:
 mvn clean install
 ```
 
-The root project builds a JAR without submodules. This branch intentionally
-contains a missing semicolon in `SampleService.java` to exercise build-error
-troubleshooting. Once that error is fixed, Maven produces
+The root project builds a JAR without submodules at
 `target/medeea-byog-1.0.0-SNAPSHOT.jar`.
+
+This branch intentionally contains code-quality issues in `QualityIssuesService.java`
+for pipeline troubleshooting: string identity comparisons, empty broad exception
+handlers, unused code, mutable public state, duplicated logic, excessive nesting,
+discarded string transformations, deprecated wrapper constructors, console logging,
+and an `equals` override without `hashCode`. The Maven build
+passes; the fixture is not production code and is not called by `SampleService`.
+The exact findings and gate outcome depend on the pipeline's analyzer and profile.
+
+To generate a local PMD report without making quality findings fail the Maven build,
+run Maven with JDK 17 (PMD 7.7.0 in this plugin does not support newer JDK class
+formats):
+
+```bash
+mvn org.apache.maven.plugins:maven-pmd-plugin:3.26.0:pmd
+```
+
+Findings are written to `target/pmd.xml`.
 
 ## Cloud Manager Configuration
 
