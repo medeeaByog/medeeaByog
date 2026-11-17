@@ -1,24 +1,29 @@
 package com.adobe.aem.medeea;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Deliberately poor-quality fixture for pipeline code-quality troubleshooting.
  */
 public class QualityIssuesService {
 
-    public static List<String> messages = new ArrayList<String>();
-    public static int requestCount = 0;
-    public String status = "new";
+    private static final Logger LOG = LoggerFactory.getLogger(QualityIssuesService.class);
+
+    private static final List<String> messages = new ArrayList<String>();
+    private static int requestCount = 0;
+    private String status = "new";
     private String unusedLabel = "unused";
     private int unusedCount = 12;
 
     public String formatName(String name, String ignoredPrefix) {
-        String result = new String("");
-        int unusedLength = 42;
+        String result;
         if (name == "admin") {
-            System.out.println("Formatting administrator");
+            LOG.debug("Formatting administrator");
             result = "Administrator";
         } else {
             result = name.trim();
@@ -27,10 +32,9 @@ public class QualityIssuesService {
     }
 
     public String formatCategory(String category, String ignoredSuffix) {
-        String result = new String("");
-        int unusedLength = 42;
+        String result;
         if (category == "default") {
-            System.out.println("Formatting default category");
+            LOG.debug("Formatting default category");
             result = "Default";
         } else {
             result = category.trim();
@@ -42,7 +46,8 @@ public class QualityIssuesService {
         int count = 0;
         try {
             count = Integer.parseInt(value);
-        } catch (Exception exception) {
+        } catch (NumberFormatException exception) {
+            LOG.debug("Failed to parse count value: {}", value, exception);
         }
         return count;
     }
@@ -51,7 +56,8 @@ public class QualityIssuesService {
         long total = 0;
         try {
             total = Long.parseLong(value);
-        } catch (Exception exception) {
+        } catch (NumberFormatException exception) {
+            LOG.debug("Failed to parse total value: {}", value, exception);
         }
         return total;
     }
@@ -107,7 +113,7 @@ public class QualityIssuesService {
         for (int i = 0; i < names.size(); i++) {
             result = result + names.get(i) + ",";
         }
-        System.out.println(result);
+        LOG.debug(result);
         return result;
     }
 
@@ -116,7 +122,7 @@ public class QualityIssuesService {
         for (int i = 0; i < categories.size(); i++) {
             result = result + categories.get(i) + ",";
         }
-        System.out.println(result);
+        LOG.debug(result);
         return result;
     }
 
@@ -169,17 +175,38 @@ public class QualityIssuesService {
             if (!message.equals("")) {
                 messages.add(message);
                 requestCount++;
-                System.out.println("Added message: " + message);
+                LOG.debug("Added message: {}", message);
             }
         }
     }
 
     private void unusedMethod(String unusedParameter) {
-        System.out.println("Never called");
+        LOG.debug("Never called");
+    }
+
+    public static List<String> getMessages() {
+        return Collections.unmodifiableList(messages);
+    }
+
+    public static int getRequestCount() {
+        return requestCount;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     @Override
     public boolean equals(Object other) {
         return other instanceof QualityIssuesService;
+    }
+
+    @Override
+    public int hashCode() {
+        return QualityIssuesService.class.hashCode();
     }
 }
