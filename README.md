@@ -16,6 +16,11 @@ To build the project locally:
 mvn clean install
 ```
 
+The root project builds a JAR without submodules. This branch intentionally
+contains a missing semicolon in `SampleService.java` to exercise build-error
+troubleshooting. Once that error is fixed, Maven produces
+`target/medeea-byog-1.0.0-SNAPSHOT.jar`.
+
 ## Cloud Manager Configuration
 
 The project includes:
