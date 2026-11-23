@@ -10,6 +10,19 @@ This project is configured to run on Adobe Cloud Manager build pipeline.
 
 ## Build
 
+### Large-archive build-error fixture
+
+This branch includes 2,048 synthetic JSON files under `archive-fixture/`.
+Each contains 16 KiB of random bytes encoded as Base64, so both ZIP and
+gzip-compressed Git source archives exceed 25 MiB. These files are outside
+the Maven source and resource directories and are not deployed.
+
+The branch has one intentional Java compilation error: the missing semicolon
+in the `SampleService` constructor at
+`src/main/java/com/adobe/aem/medeea/SampleService.java:11`.
+`mvn clean install` fails with `';' expected`. Restore that semicolon to
+allow compilation; the existing code-quality issues described below remain.
+
 To build the project locally:
 
 ```bash
@@ -25,9 +38,8 @@ This branch intentionally contains code-quality issues in `QualityIssuesService.
 for pipeline troubleshooting: string identity comparisons, empty broad exception
 handlers, unused code, mutable public state, duplicated logic, excessive nesting,
 discarded string transformations, deprecated wrapper constructors, console logging,
-and an `equals` override without `hashCode`. The Maven build
-passes; the Java fixture is compiled for analysis, but is not deployed as an
-OSGi bundle and is not called by `SampleService`.
+and an `equals` override without `hashCode`. The Java fixture is compiled for
+analysis, but is not deployed as an OSGi bundle and is not called by `SampleService`.
 The exact findings and gate outcome depend on the pipeline's analyzer and profile.
 
 To generate a local PMD report without making quality findings fail the Maven build,
