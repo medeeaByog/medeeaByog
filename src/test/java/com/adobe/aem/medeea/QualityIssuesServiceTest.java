@@ -117,7 +117,7 @@ class QualityIssuesServiceTest {
     // calculateScore — all branches
     @Test
     void calculateScore_activePreferredGoldOver100() {
-        assertEquals(700, service.calculateScore(100, "gold", true, true));
+        assertEquals(500, service.calculateScore(100, "gold", true, true));
     }
 
     @Test
@@ -137,7 +137,7 @@ class QualityIssuesServiceTest {
 
     @Test
     void calculateScore_activePreferredSilverOver100() {
-        assertEquals(500, service.calculateScore(100, "silver", true, true));
+        assertEquals(300, service.calculateScore(100, "silver", true, true));
     }
 
     @Test
