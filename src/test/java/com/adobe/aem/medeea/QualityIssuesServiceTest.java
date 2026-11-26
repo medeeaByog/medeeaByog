@@ -134,7 +134,7 @@ public class QualityIssuesServiceTest {
 
     @Test
     public void calculateScore_activePreferredGoldHigh_returnsValueTimes7() {
-        assertEquals(700, service.calculateScore(100, "gold", true, true));
+        assertEquals(707, service.calculateScore(101, "gold", true, true));
         assertEquals(770, service.calculateScore(110, "gold", true, true));
     }
 
