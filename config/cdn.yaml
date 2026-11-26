@@ -1,0 +1,5 @@
+kind: "CDN"
+version: "1"
+data:
+  trafficFilters:
+    rules: [

@@ -2,6 +2,21 @@
 
 This project is configured to run on Adobe Cloud Manager build pipeline.
 
+## Intentional config pipeline failure
+
+Branch `config-pipeline-validation-error` contains malformed YAML in
+`config/cdn.yaml`: the `rules` array is opened with `[` but never closed.
+This fixture is intended to fail config pipeline YAML validation before deployment.
+The exact error wording depends on Cloud Manager's YAML parser.
+
+In Cloud Manager, select this repository and branch, use a Targeted Deployment
+configuration pipeline (not Full Stack Code), and set the configuration location
+to `config`. Run it against a non-production test environment.
+The Maven build is not involved in this failure.
+
+To remove the intentional syntax error, replace `rules: [` with `rules: []`.
+Do not deploy this troubleshooting branch to production.
+
 ## Prerequisites
 
 - Java 11 or higher
